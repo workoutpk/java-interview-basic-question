@@ -1,4 +1,4 @@
-package com.javatechie;
+package mapVsflatMap;
 
 import java.util.Arrays;
 import java.util.List;

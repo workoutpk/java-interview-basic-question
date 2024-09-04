@@ -1,4 +1,4 @@
-package com.javatechie.stream.api.example;
+package example;
 
 import java.util.ArrayList;
 import java.util.List;

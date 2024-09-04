@@ -1,4 +1,4 @@
-package com.javatechie.stream;
+package stream;
 
 import java.util.HashMap;
 import java.util.Map;

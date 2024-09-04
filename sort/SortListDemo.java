@@ -1,12 +1,13 @@
-package com.javatechie.stream.sort;
+package sort;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import com.javatechie.stream.api.example.DataBase;
-import com.javatechie.stream.api.example.Employee;
+
+import example.DataBase;
+import example.Employee;
 
 public class SortListDemo {
 

@@ -1,4 +1,4 @@
-package com.javatechie.stream.api.example;
+package example;
 
 public class Employee {
 

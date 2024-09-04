@@ -1,4 +1,4 @@
-package com.javatechie.lambda.example;
+package example;
 
 import java.util.ArrayList;
 import java.util.List;

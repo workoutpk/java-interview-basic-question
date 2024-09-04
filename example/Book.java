@@ -1,4 +1,4 @@
-package com.javatechie.lambda.example;
+package example;
 
 public class Book {
 	private int id;

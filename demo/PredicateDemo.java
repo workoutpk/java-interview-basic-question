@@ -1,4 +1,4 @@
-package com.javatechie.pre.functional.demo;
+package demo;
 
 import java.util.Arrays;
 import java.util.List;
