@@ -1,0 +1,129 @@
+The Adapter Design Pattern is a structural design pattern used to bridge the gap between incompatible interfaces.
+The adapter pattern allows an existing class with a different interface to be used as another
+interface without modifying its source code.
+
+Step-by-step Code Implementation:
+Target Interface (MediaPlayer): This is the interface the client expects to use.
+Adaptee (AdvancedMediaPlayer): This is the class that needs to be adapted to work with the MediaPlayer interface.
+Adapter (MediaAdapter): This class will implement the MediaPlayer interface and make AdvancedMediaPlayer compatible.
+Concrete Implementation: An audio player (AudioPlayer) that uses the adapter to play different formats
+Step 1: Define the Target Interface (MediaPlayer)
+// The Target Interface
+public interface MediaPlayer {
+    void play(String audioType, String fileName);
+}
+
+Step 2: Define the Adaptee (AdvancedMediaPlayer)
+// The Adaptee Interface
+public interface AdvancedMediaPlayer {
+    void playVlc(String fileName);
+    void playMp4(String fileName);
+}
+
+// Concrete Adaptee - VLC player
+public class VlcPlayer implements AdvancedMediaPlayer {
+
+    @Override
+    public void playVlc(String fileName) {
+        System.out.println("Playing vlc file. Name: " + fileName);
+    }
+
+    @Override
+    public void playMp4(String fileName) {
+        // Do nothing
+    }
+}
+
+// Concrete Adaptee - MP4 player
+public class Mp4Player implements AdvancedMediaPlayer {
+
+    @Override
+    public void playVlc(String fileName) {
+        // Do nothing
+    }
+
+    @Override
+    public void playMp4(String fileName) {
+        System.out.println("Playing mp4 file. Name: " + fileName);
+    }
+}
+
+
+
+Step 3: Create the Adapter Class (MediaAdapter)
+// Concrete Adaptee - VLC player
+public class VlcPlayer implements AdvancedMediaPlayer {
+
+    @Override
+    public void playVlc(String fileName) {
+        System.out.println("Playing vlc file. Name: " + fileName);
+    }
+
+    @Override
+    public void playMp4(String fileName) {
+        // Do nothing
+    }
+}
+
+// Concrete Adaptee - MP4 player
+public class Mp4Player implements AdvancedMediaPlayer {
+
+    @Override
+    public void playVlc(String fileName) {
+        // Do nothing
+    }
+
+    @Override
+    public void playMp4(String fileName) {
+        System.out.println("Playing mp4 file. Name: " + fileName);
+    }
+}
+
+Step 4: Implement the Concrete Class (AudioPlayer) that Uses the Adapter
+
+// The Client that uses MediaPlayer interface
+public class AudioPlayer implements MediaPlayer {
+    MediaAdapter mediaAdapter;
+
+    @Override
+    public void play(String audioType, String fileName) {
+
+        // Inbuilt support to play mp3 music files
+        if (audioType.equalsIgnoreCase("mp3")) {
+            System.out.println("Playing mp3 file. Name: " + fileName);
+        }
+
+        // MediaAdapter is providing support to play other file formats
+        else if (audioType.equalsIgnoreCase("vlc") || audioType.equalsIgnoreCase("mp4")) {
+            mediaAdapter = new MediaAdapter(audioType);
+            mediaAdapter.play(audioType, fileName);
+        }
+
+        // Unsupported file type
+        else {
+            System.out.println("Invalid media. " + audioType + " format not supported");
+        }
+    }
+}
+
+
+
+Step 5: Test the Adapter Pattern
+
+public class AdapterPatternDemo {
+    public static void main(String[] args) {
+        AudioPlayer audioPlayer = new AudioPlayer();
+
+        audioPlayer.play("mp3", "song1.mp3");       // Plays MP3 natively
+        audioPlayer.play("mp4", "video1.mp4");      // Uses adapter to play MP4
+        audioPlayer.play("vlc", "movie1.vlc");      // Uses adapter to play VLC
+        audioPlayer.play("avi", "movie2.avi");      // Unsupported format
+    }
+}
+
+
+Playing mp3 file. Name: song1.mp3
+Playing mp4 file. Name: video1.mp4
+Playing vlc file. Name: movie1.vlc
+Invalid media. avi format not supported
+

@@ -1,0 +1,1 @@
+Normalization is a database design technique that arranges tables in a style that reduces redundancy and dependency of data. 

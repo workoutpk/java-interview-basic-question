@@ -3,7 +3,6 @@ package com.javatechie.lambda.demo;
 public interface MyFunctionalInterface {
 
 		void m1();
-
 		default void m2() {
 				System.out.println("Default method-1");
 		}

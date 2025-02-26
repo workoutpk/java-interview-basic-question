@@ -20,12 +20,12 @@ public class InterviewTest2 {
 
                         .collect(Collectors.groupingBy(ele->ele.getAge()));
 
-                System.out.println(people);
+                System.out.println("GroupingBy Age :::::::::::: "+people);
 
                 List<People> people1 = peopleList.stream()
                         .sorted(Comparator.comparing(People::getName))
                         .toList();
-                System.out.println("Sorted People"+people1);
+                System.out.println("Sorted People ::::::::   "+people1);
 
                 List<String>  stringList = Arrays.asList("ab","ab","abc");
                 List<String> queries =Arrays.asList("ab","abc","bc");

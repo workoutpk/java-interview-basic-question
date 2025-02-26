@@ -54,9 +54,10 @@ public class CompletableFutureExample {
                         System.out.println("Index of  ::::::::::::;" +list4.get(5));
                         System.out.println("median is ::: "+ median );
                         List<Integer> list5 = Arrays.asList(1,2,3,5,6,7,8,9);
-                        List<Integer> missingNumber = list5.stream()
-                                .filter(number->list5.indexOf(number)+1 !=number).toList();
-                        System.out.println("Missing Number "+missingNumber);
+                        int missingNumber = list5.stream()
+                                .filter(number->list5.indexOf(number)+1 !=number).findFirst().get();
+                        int finalNumber = missingNumber -1;
+                        System.out.println("Missing Number "+  finalNumber);
                         System.out.println("Index of "+list5.indexOf(5));
 
                 }

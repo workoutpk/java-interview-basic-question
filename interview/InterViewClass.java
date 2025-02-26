@@ -44,7 +44,14 @@ public class InterViewClass {
                 System.out.println("Modified map ::: " + stringIntegerMap);
 
 
+                Map<String, Integer> stringIntegerMap1 = books.entrySet().stream().map(mm->{
+                        return new AbstractMap.SimpleEntry<>(mm.getKey(),mm.getValue()*2);
+                }).collect(Collectors.toMap(Map.Entry ::getKey, Map.Entry::getValue));
 
-
+                StringBuilder stringBuilder = new StringBuilder(s1);
+                stringBuilder.reverse();
+                System.out.println("stringBuilder :: "+ stringBuilder);
+                String string=  Arrays.stream(s1.split("")).map(tt->new StringBuilder(tt).reverse()).toString();
+                System.out.println("string ::: " + string.toString());
         }
 }
